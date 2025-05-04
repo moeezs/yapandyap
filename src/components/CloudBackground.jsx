@@ -1,5 +1,4 @@
 import React from 'react';
-import cloudSvg from '../assets/cloud.svg';
 
 const CloudBackground = ({ darkMode }) => {
   const clouds = Array.from({ length: 5 }, () => ({
@@ -14,7 +13,7 @@ const CloudBackground = ({ darkMode }) => {
       {clouds.map((cloud, index) => (
         <img
           key={index}
-          src={cloudSvg}
+          src="/assets/cloud.svg"
           alt=""
           className="absolute w-32 transition-opacity duration-500"
           style={{

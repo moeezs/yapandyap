@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/theme.css';
 import '../styles/fonts.css';
-import lampImage from '../assets/lamp.png';
 import CloudBackground from './CloudBackground';
 
 function LandingPage({ onSubmitQuestion, darkMode, toggleDarkMode, onChooseCharacters }) {
@@ -9,7 +8,6 @@ function LandingPage({ onSubmitQuestion, darkMode, toggleDarkMode, onChooseChara
   const lampRef = useRef(null);
   const letterRefs = useRef([]);
 
-  
   const setLetterRef = (el, index) => {
     letterRefs.current[index] = el;
   };
@@ -156,7 +154,7 @@ function LandingPage({ onSubmitQuestion, darkMode, toggleDarkMode, onChooseChara
         <h1 className="text-6xl font-bold mb-2 text-center toy-story-font logo-3d relative">
           <img
             ref={lampRef}
-            src={lampImage}
+            src="/assets/lamp.png"
             alt="Jumping Lamp"
             className="pixar-lamp"
           />
