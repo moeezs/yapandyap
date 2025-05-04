@@ -1,0 +1,179 @@
+/* Importing better font for Toy Story style */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap');
+
+/* Toy Story style font class with theme-aware styling */
+.toy-story-font {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 4.5rem; /* Bigger font size */
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* Added letter spacing */
+  position: relative; /* Needed for absolute positioning of lamp */
+  display: inline-block;
+  padding: 0.1em 0.2em;
+  background: linear-gradient(180deg, #FCDF44 0%, #FFB313 100%); /* Classic Toy Story yellow/gold */
+  -webkit-background-clip: text;
+  background-clip: text;
+  line-height: 1;
+  filter: drop-shadow(0 4px 2px rgba(0,0,0,0.3)); /* Default shadow */
+  /* Remove the jump animation from the text itself if the lamp is doing the jumping */
+  /* animation: pixarJump 1.5s ease-in-out infinite; */
+}
+
+/* Light theme shadow */
+.light-theme .toy-story-font {
+  filter: drop-shadow(0 4px 2px rgba(0,0,0,0.4));
+}
+
+/* Dark theme shadow */
+.dark-theme .toy-story-font {
+  filter: drop-shadow(0 4px 4px rgba(255,255,255,0.2));
+}
+
+/* Toy Story logo container for better centering and spacing */
+.toy-story-logo-container {
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Authentic Toy Story animation - a subtle scale bounce */
+.toy-story-bounce {
+  animation: toyStoryBounce 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes toyStoryBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Logo wrapper for positioning */
+.logo-wrapper {
+  position: relative;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Adding shine effect on the logo - like Toy Story */
+.logo-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  animation: shine 4s infinite;
+  transform: skewX(-20deg);
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) skewX(-20deg); }
+  50% { transform: translateX(100%) skewX(-20deg); }
+  100% { transform: translateX(100%) skewX(-20deg); }
+}
+
+/* Styling for the lamp image */
+.pixar-lamp {
+  position: absolute;
+  height: 50px; /* Adjust size as needed */
+  width: auto;
+  bottom: 100%; /* Start above the text */
+  left: 0; /* Start at the beginning */
+  transform-origin: bottom center;
+  z-index: 10; /* Ensure lamp is above text */
+  /* Apply the complex lamp animation - use alternate direction */
+  animation: lampHop 8s ease-in-out infinite alternate; /* Added alternate */
+  transition: transform 0.3s ease; /* Add transition for smooth flipping */
+}
+
+/* Add class for flipping the lamp */
+.pixar-lamp .flipped {
+    transform: scaleX(-1);
+}
+
+/* Keyframes for the lamp hopping - PARABOLIC JUMP (Reduced horizontal distance) */
+@keyframes lampHop {
+  /* Start Y */
+  0%    { left: 7%; transform: translateY(12px) scale(1, 1); } /* Settle Y */
+  
+  /* Jump Y -> a */
+  3.5%  { left: 7%; transform: translateY(12px) scale(1, 1); animation-timing-function: ease-out; } /* Start leaving Y */
+  7%    { left: 14%; transform: translateY(-60px) scale(0.9, 1.1); animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1); } /* Peak between Y & a */
+  10.5% { left: 18%; transform: translateY(16px) scale(1.1, 0.9); animation-timing-function: ease-in; } /* Land a */
+  14%   { left: 18%; transform: translateY(12px) scale(1, 1); } /* Settle a */
+
+  /* Jump a -> p */
+  17.5% { left: 18%; transform: translateY(12px) scale(1, 1); animation-timing-function: ease-out; } 
+  21%   { left: 28%; transform: translateY(-60px) scale(0.9, 1.1); animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1); }
+  24.5% { left: 32%; transform: translateY(16px) scale(1.1, 0.9); animation-timing-function: ease-in; }
+  28%   { left: 32%; transform: translateY(12px) scale(1, 1); }
+
+  /* Jump p -> & */
+  31.5% { left: 32%; transform: translateY(12px) scale(1, 1); animation-timing-function: ease-out; }
+  35%   { left: 40%; transform: translateY(-60px) scale(0.9, 1.1); animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1); }
+  38.5% { left: 46%; transform: translateY(16px) scale(1.1, 0.9); animation-timing-function: ease-in; }
+  42%   { left: 46%; transform: translateY(12px) scale(1, 1); }
+
+  /* Jump & -> Y */
+  45.5% { left: 46%; transform: translateY(12px) scale(1, 1); animation-timing-function: ease-out; }
+  49%   { left: 53%; transform: translateY(-60px) scale(0.9, 1.1); animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1); }
+  52.5% { left: 60%; transform: translateY(16px) scale(1.1, 0.9); animation-timing-function: ease-in; }
+  56%   { left: 60%; transform: translateY(12px) scale(1, 1); }
+
+  /* Jump Y -> a */
+  59.5% { left: 60%; transform: translateY(12px) scale(1, 1); animation-timing-function: ease-out; }
+  63%   { left: 65%; transform: translateY(-60px) scale(0.9, 1.1); animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1); }
+  66.5% { left: 73%; transform: translateY(16px) scale(1.1, 0.9); animation-timing-function: ease-in; }
+  70%   { left: 73%; transform: translateY(12px) scale(1, 1); }
+
+  /* Jump a -> p */
+  73.5% { left: 73%; transform: translateY(12px) scale(1, 1); animation-timing-function: ease-out; }
+  77%   { left: 78%; transform: translateY(-60px) scale(0.9, 1.1); animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1); }
+  80.5% { left: 85%; transform: translateY(16px) scale(1.1, 0.9); animation-timing-function: ease-in; }
+  84%   { left: 85%; transform: translateY(12px) scale(1, 1); } /* Settle on last p */
+  
+  /* Stay settled on last p until 100% */
+  100%  { left: 85%; transform: translateY(12px) scale(1, 1); } 
+}
+
+/* Keyframes for the letter squash/bounce effect - ENHANCED */
+@keyframes letterSquash {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  50% { transform: translateY(10px) scale(1.2, 0.8); } /* More pronounced squash effect */
+}
+
+/* Class to trigger the letter squash */
+.character-animate.squashed {
+  animation: letterSquash 0.4s ease-out; /* Duration can be adjusted */
+}
+
+/* Comment out or remove the old pixarJump keyframes if no longer used */
+/* --- Start Comment --- 
+@keyframes pixarJump {
+  0%, 100% {
+    transform: translateY(0) scale(1, 1);
+    animation-timing-function: ease-out;
+  }
+  25% {
+    transform: translateY(-30px) scale(0.95, 1.05);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: translateY(0) scale(1.05, 0.95);
+    animation-timing-function: ease-out;
+  }
+  75% {
+    transform: translateY(-10px) scale(0.98, 1.02);
+    animation-timing-function: ease-in;
+  }
+}
+--- End Comment --- */
