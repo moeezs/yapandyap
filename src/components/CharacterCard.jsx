@@ -3,8 +3,8 @@ import '../styles/theme.css';
 
 const CharacterCard = ({ character, isSelected, onClick, darkMode }) => {
   const avatarPath = character.avatar 
-    ? `/src/assets/avatars/${character.avatar}`
-    : '/src/assets/avatars/default.png';
+    ? `/assets/avatars/${character.avatar}`
+    : '/assets/avatars/default.png';
 
   const getBackgroundColor = () => {
     if (!character.themeColor) return darkMode ? 'var(--color-surface)' : 'var(--color-background)';
@@ -48,7 +48,7 @@ const CharacterCard = ({ character, isSelected, onClick, darkMode }) => {
             style={{ maxHeight: '100%' }}
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = '/src/assets/avatars/default.png';
+              e.target.src = '/assets/avatars/default.png';
             }}
           />
         </div>

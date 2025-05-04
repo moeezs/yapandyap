@@ -20,8 +20,8 @@ const getTextColorForBg = (bgColor, darkMode) => {
 
 const CharacterTile = ({ character, responseText, onClick, darkMode }) => {
   const avatarPath = character.avatar 
-    ? `/src/assets/avatars/${character.avatar}`
-    : '/src/assets/avatars/default.png';
+    ? `/assets/avatars/${character.avatar}`
+    : '/assets/avatars/default.png';
   const themeColor = getThemeColor(character.id, darkMode);
   const textColor = getTextColorForBg(themeColor, darkMode);
 
@@ -46,7 +46,7 @@ const CharacterTile = ({ character, responseText, onClick, darkMode }) => {
             }}
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = '/src/assets/avatars/default.png';
+              e.target.src = '/assets/avatars/default.png';
             }}
           />
         </div>

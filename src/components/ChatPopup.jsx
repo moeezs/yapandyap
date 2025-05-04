@@ -29,8 +29,8 @@ const ChatPopup = ({ character, history, onClose, darkMode }) => {
   }, [history]);
 
   const avatarPath = character.avatar 
-    ? `/src/assets/avatars/${character.avatar}`
-    : '/src/assets/avatars/default.png';
+    ? `/assets/avatars/${character.avatar}`
+    : '/assets/avatars/default.png';
   const themeColor = getThemeColor(character.id, darkMode);
   const textColor = getTextColorForBg(themeColor, darkMode);
 
@@ -77,7 +77,7 @@ const ChatPopup = ({ character, history, onClose, darkMode }) => {
                 className="w-full h-full object-cover"
                 onError={e => {
                   e.target.onerror = null;
-                  e.target.src = '/src/assets/avatars/default.png';
+                  e.target.src = '/assets/avatars/default.png';
                 }}
               />
             </div>
